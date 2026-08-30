@@ -11,6 +11,12 @@ from src.components.data_transformation import DataTransformation
 from src.components.data_transformation import DataTransformationConfig
 
 
+
+from src.components.model_trainer import ModelTrainer
+from src.components.model_trainer import ModeltrainerConfig
+
+
+
 @dataclass
 class DataIngestionConfig:
     train_data_path: str=os.path.join('artifacts',"train.csv")
@@ -24,7 +30,7 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logging.info("Entered the data ingestion method or component")
         try:
-            df=pd.read_csv('Notebook-temp\stud.csv')
+            df=pd.read_csv('Notebook-temp/stud.csv')
             logging.info('Read the dataset as dataframe')
 
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exist_ok=True)
@@ -54,3 +60,9 @@ if __name__=="__main__":
 
     data_transformation=DataTransformation()
     train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
+
+    modeltrainer=ModelTrainer()
+    r2_score, model_report, best_model_name = modeltrainer.initiate_model_trainer(train_arr,test_arr)
+    print(f"Best R2 Score: {r2_score}")
+    print(f"Model Report: {model_report}")
+    print(f"Best Model Name: {best_model_name}")
