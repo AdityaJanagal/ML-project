@@ -1,1 +1,296 @@
-<h1>Welcome to the home page</h1>
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Student Exam Performance Predictor</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #eef2ff, #f8fafc, #e0f2fe);
+        color: #0f172a;
+    }
+
+    .navbar {
+        width: 100%;
+        padding: 22px 7%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 20px;
+        font-weight: 800;
+        color: #4f46e5;
+    }
+
+    .nav-tag {
+        font-size: 13px;
+        color: #64748b;
+        background: rgba(255, 255, 255, 0.7);
+        padding: 8px 14px;
+        border-radius: 20px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .hero {
+        max-width: 1100px;
+        min-height: calc(100vh - 80px);
+        margin: auto;
+        padding: 70px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 60px;
+    }
+
+    .hero-content {
+        max-width: 620px;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 30px;
+        background: #e0e7ff;
+        color: #4338ca;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        margin-bottom: 22px;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+        line-height: 1.1;
+        letter-spacing: -1.5px;
+        margin-bottom: 22px;
+    }
+
+    .highlight {
+        color: #4f46e5;
+    }
+
+    .hero p {
+        font-size: 17px;
+        line-height: 1.8;
+        color: #64748b;
+        margin-bottom: 32px;
+        max-width: 570px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 15px 25px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #4f46e5, #6366f1);
+        color: white;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 700;
+        box-shadow: 0 10px 25px rgba(79, 70, 229, 0.25);
+        transition: all 0.25s ease;
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 30px rgba(79, 70, 229, 0.30);
+    }
+
+    .info-card {
+        width: 330px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid #e2e8f0;
+        border-radius: 24px;
+        padding: 30px;
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.10);
+    }
+
+    .card-icon {
+        width: 55px;
+        height: 55px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #eef2ff;
+        border-radius: 15px;
+        font-size: 27px;
+        margin-bottom: 22px;
+    }
+
+    .info-card h2 {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    .info-card p {
+        font-size: 14px;
+        line-height: 1.7;
+        color: #64748b;
+        margin-bottom: 22px;
+    }
+
+    .features {
+        list-style: none;
+    }
+
+    .features li {
+        padding: 10px 0;
+        border-bottom: 1px solid #f1f5f9;
+        color: #475569;
+        font-size: 14px;
+    }
+
+    .features li:last-child {
+        border-bottom: none;
+    }
+
+    .check {
+        color: #4f46e5;
+        font-weight: 800;
+        margin-right: 8px;
+    }
+
+    .footer {
+        text-align: center;
+        padding: 20px;
+        color: #94a3b8;
+        font-size: 12px;
+    }
+
+    @media (max-width: 800px) {
+        .hero {
+            flex-direction: column;
+            text-align: center;
+            padding-top: 40px;
+        }
+
+        .hero h1 {
+            font-size: 39px;
+        }
+
+        .hero p {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .info-card {
+            width: 100%;
+            max-width: 400px;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<nav class="navbar">
+
+    <div class="logo">
+        Student Performance AI
+    </div>
+
+    <div class="nav-tag">
+        Machine Learning Project
+    </div>
+
+</nav>
+
+
+<main class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            ML-POWERED PREDICTION
+        </div>
+
+        <h1>
+            Predict Student
+            <span class="highlight">Math Performance</span>
+        </h1>
+
+        <p>
+            Use machine learning to estimate a student's mathematics
+            exam score based on their academic background, test
+            preparation, and previous reading and writing scores.
+        </p>
+
+        <a href="{{ url_for('predict_datapoint') }}" class="btn">
+            Start Prediction →
+        </a>
+
+    </div>
+
+
+    <div class="info-card">
+
+        <div class="card-icon">
+            🎓
+        </div>
+
+        <h2>
+            How it works
+        </h2>
+
+        <p>
+            Enter a few details about the student and let the trained
+            machine learning model generate an estimated mathematics score.
+        </p>
+
+        <ul class="features">
+
+            <li>
+                <span class="check">✓</span>
+                Student demographics
+            </li>
+
+            <li>
+                <span class="check">✓</span>
+                Parental education
+            </li>
+
+            <li>
+                <span class="check">✓</span>
+                Lunch type
+            </li>
+
+            <li>
+                <span class="check">✓</span>
+                Test preparation
+            </li>
+
+            <li>
+                <span class="check">✓</span>
+                Reading & writing scores
+            </li>
+
+        </ul>
+
+    </div>
+
+</main>
+
+
+<div class="footer">
+    Student Exam Performance Indicator · Built with Machine Learning
+</div>
+```
+
+</body>
+</html>
